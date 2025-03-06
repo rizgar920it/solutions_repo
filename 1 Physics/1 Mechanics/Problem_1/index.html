@@ -207,9 +207,7 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<p>Let’s dive into this investigation of how the range of a projectile depends on its angle of projection. I’ll structure the response as a comprehensive Markdown document, complete with derivations, analysis, a Python implementation, and visualizations—all tailored to meet your deliverables. Here we go!</p>
-<hr/>
-<h1 id="investigating-the-range-as-a-function-of-the-angle-of-projection">Investigating the Range as a Function of the Angle of Projection</h1>
+<h1 id="problem-1">Problem 1</h1>
 <h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
 <p>Projectile motion is a classic application of Newton’s laws in two dimensions. Let’s derive the governing equations from first principles, assuming no air resistance and a constant gravitational field, to establish the framework.</p>
 <h3 id="derivation-of-the-equations-of-motion">Derivation of the Equations of Motion</h3>
@@ -234,21 +232,21 @@
 <p>These are the parametric equations of motion, forming a parabola under ideal conditions.</p>
 <h3 id="family-of-solutions">Family of Solutions</h3>
 <p>The solutions depend on free parameters: <span class="arithmatex">\(v_0\)</span>, <span class="arithmatex">\(\theta\)</span>, and <span class="arithmatex">\(g\)</span>. Additionally, if launched from a height <span class="arithmatex">\(h\)</span> (i.e., <span class="arithmatex">\(y_0 = h\)</span>), the vertical position becomes:</p>
-<div class="arithmatex">\[ y(t) = h + v_0 \sin\theta \cdot t - \frac{1}{2} g t^2 \]</div>
+<div class="arithmatex">\[y(t) = h + v_0 \sin\theta \cdot t - \frac{1}{2} g t^2\]</div>
 <p>Varying <span class="arithmatex">\(v_0\)</span>, <span class="arithmatex">\(\theta\)</span>, <span class="arithmatex">\(g\)</span>, or <span class="arithmatex">\(h\)</span> generates a family of trajectories, from shallow arcs to steep climbs, adaptable to diverse scenarios.</p>
 <h2 id="2-analysis-of-the-range">2. Analysis of the Range</h2>
 <p>The range <span class="arithmatex">\(R\)</span> is the horizontal distance traveled when the projectile returns to <span class="arithmatex">\(y = 0\)</span>. For launch height <span class="arithmatex">\(h = 0\)</span>:</p>
 <h3 id="time-of-flight">Time of Flight</h3>
 <p>Set <span class="arithmatex">\(y(t) = 0\)</span>:
-[ 0 = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2 ]
-[ t (v_0 \sin\theta - \frac{1}{2} g t) = 0 ]
-- Trivial solution: <span class="arithmatex">\(t = 0\)</span> (start)
-- Non-trivial: <span class="arithmatex">\(t = \frac{2 v_0 \sin\theta}{g}\)</span></p>
+$$ 0 = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2 $$
+$$ t (v_0 \sin\theta - \frac{1}{2} g t) = 0 $$
+- Trivial solution: <span class="arithmatex">\(t = 0s\)</span> (start)
+- Non-trivial: <span class="arithmatex">\((t = \frac{2 v_0 \sin\theta}{g})\)</span></p>
 <h3 id="range-equation">Range Equation</h3>
 <p>Substitute into <span class="arithmatex">\(x(t)\)</span>:
-[ R = v_0 \cos\theta \cdot \frac{2 v_0 \sin\theta}{g} = \frac{2 v_0^2 \sin\theta \cos\theta}{g} ]
-Using the identity <span class="arithmatex">\(2 \sin\theta \cos\theta = \sin 2\theta\)</span>:
-[ R = \frac{v_0^2 \sin 2\theta}{g} ]</p>
+$$ R = v_0 \cos\theta \cdot \frac{2 v_0 \sin\theta}{g} = \frac{2 v_0^2 \sin\theta \cos\theta}{g} $$
+Using the identity <span class="arithmatex">\(<span class="arithmatex">\(2 \sin\theta \cos\theta = \sin 2\theta\)</span>\)</span>:
+$$ R = \frac{v_0^2 \sin 2\theta}{g} $$</p>
 <h3 id="dependence-on-angle">Dependence on Angle</h3>
 <ul>
 <li><strong>Maximum Range</strong>: <span class="arithmatex">\(R\)</span> is maximized when <span class="arithmatex">\(\sin 2\theta = 1\)</span>, so <span class="arithmatex">\(2\theta = 90^\circ\)</span>, <span class="arithmatex">\(\theta = 45^\circ\)</span>. Then, <span class="arithmatex">\(R_{\text{max}} = \frac{v_0^2}{g}\)</span>.</li>
@@ -310,7 +308,7 @@ plt.show()
 <p>This generates a plot showing:
 - Range peaking at <span class="arithmatex">\(45^\circ\)</span> for <span class="arithmatex">\(h = 0\)</span>.
 - Increased range with higher <span class="arithmatex">\(v_0\)</span>.
-- Extended range and shifted optimal angle (below <span class="arithmatex">\(45^\circ\)</span>) with <span class="arithmatex">\(h &gt; 0\)</span>.</p>
+- Extended range and shifted optimal angle $below <span class="arithmatex">\(45^\circ\)</span> with <span class="arithmatex">\(h &gt; 0\)</span>.</p>
 <h2 id="discussion">Discussion</h2>
 <h3 id="limitations">Limitations</h3>
 <ul>
