@@ -5,15 +5,11 @@ Here's a step-by-step derivation and analysis of Kepler's Third Law, its implica
 
 For circular orbits, the gravitational force acts as a centripetal force. Thus:
 
-$
-F_\text{gravity} = F_\text{centripetal}
-$
+$F_\text{gravity} = F_\text{centripetal}$
 
 Using Newton’s law of universal gravitation:
 
-$
-\frac{GMm}{r^2} = \frac{mv^2}{r}
-$
+$\frac{GMm}{r^2} = \frac{mv^2}{r}$
 
 where:  
 - $G$ is the gravitational constant,  
@@ -24,27 +20,19 @@ where:
 
 Simplifying:
 
-$
-\frac{GM}{r^2} = \frac{v^2}{r} \quad \Rightarrow \quad v^2 = \frac{GM}{r}
-$
+$\frac{GM}{r^2} = \frac{v^2}{r} \quad \Rightarrow \quad v^2 = \frac{GM}{r}$
 
 Orbital period $T$ is related to velocity by $v = \frac{2\pi r}{T}$, thus:
 
-$
-\left(\frac{2\pi r}{T}\right)^2 = \frac{GM}{r}
-$
+$\left(\frac{2\pi r}{T}\right)^2 = \frac{GM}{r}$
 
 Solve for $T^2$:
 
-$
-T^2 = \frac{4\pi^2}{GM} r^3
-$
+$T^2 = \frac{4\pi^2}{GM} r^3$
 
 This is Kepler's Third Law, which states:
 
-$
-\boxed{T^2 \propto r^3}
-$
+$\boxed{T^2 \propto r^3}$
 
 The orbital period squared is proportional to the orbital radius cubed.
 
