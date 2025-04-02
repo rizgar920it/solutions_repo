@@ -225,4 +225,5 @@ By mathematically deriving and visually simulating the first, second, and third 
 ---
 ![alt text](image.png)
 This visual representation helps clarify how material transitions from being gravitationally bound to unbound as its velocity increases. Feel free to run and modify the code to suit your presentation needs.
+![alt text](image-1.png)
 Feel free to use and adapt the provided Python and Java scripts for your simulations and presentations.
