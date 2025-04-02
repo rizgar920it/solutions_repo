@@ -252,36 +252,107 @@ M = 5.972e24     # Mass of Earth in kg
 orbital_radius = 384400e3  # meters
 orbital_period = 27.3 * 24 * 3600  # seconds (Moon orbital period)
 
-# Verifying Kepler's third law
+# Verify Kepler's third law calculation
 computed_T_squared = (4 * np.pi**2 * orbital_radius**3) / (G * M)
 computed_period = np.sqrt(computed_T_squared)
-print(f"Computed orbital period (days): {computed_period/(24*3600):.2f}")
+computed_period_days = computed_period / (24 * 3600)
 
-# Setup figure
-fig, ax = plt.subplots(figsize=(6,6))
-ax.set_xlim(-1.2*orbital_radius, 1.2*orbital_radius)
-ax.set_ylim(-1.2*orbital_radius, 1.2*orbital_radius)
+# Figure setup
+fig, ax = plt.subplots(figsize=(7, 7))
+ax.set_xlim(-1.2 * orbital_radius, 1.2 * orbital_radius)
+ax.set_ylim(-1.2 * orbital_radius, 1.2 * orbital_radius)
 ax.set_aspect('equal')
-ax.set_title('Circular Orbit Animation (Moon around Earth)')
-ax.plot(0, 0, 'yo', markersize=20, label='Earth')  # Central body (Earth)
-orbit, = ax.plot([], [], 'b-', lw=1, label='Orbit path')
-satellite, = ax.plot([], [], 'ro', markersize=6, label='Moon')
+ax.set_title('Moon Orbiting Earth (Circular Orbit Animation)', fontsize=14)
 
-# Animation function
+# Plot Earth
+ax.plot(0, 0, 'bo', markersize=20, label='Earth')
+
+# Plot orbital path (static)
+theta = np.linspace(0, 2*np.pi, 300)
+orbit_path_x = orbital_radius * np.cos(theta)
+orbit_path_y = orbital_radius * np.sin(theta)
+ax.plot(orbit_path_x, orbit_path_y, 'gray', linestyle='--', linewidth=1)
+
+# Initialize Moon position as a Line2D object
+moon, = ax.plot([], [], 'ro', markersize=8, label='Moon')
+
+# Text for displaying the period
+period_text = ax.text(0.02, 0.95, '', transform=ax.transAxes)
+
+# Animation update function
 def update(frame):
     angle = 2 * np.pi * frame / frames_per_orbit
     x = orbital_radius * np.cos(angle)
     y = orbital_radius * np.sin(angle)
-    orbit.set_data(orbital_radius * np.cos(np.linspace(0, 2*np.pi, 100)),
-                   orbital_radius * np.sin(np.linspace(0, 2*np.pi, 100)))
-    satellite.set_data(x, y)
-    return satellite, orbit
+    # Wrap x and y in lists so that set_data sees them as sequences
+    moon.set_data([x], [y])
+    period_text.set_text(
+        f'Orbital Period: {computed_period_days:.2f} days\nFrame: {frame}/{frames_per_orbit}'
+    )
+    return moon, period_text
 
-frames_per_orbit = 100
+frames_per_orbit = 200
 ani = FuncAnimation(fig, update, frames=frames_per_orbit, interval=50, blit=True)
 
-plt.legend()
+ax.legend()
 plt.show()
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+# Constants
+G = 6.67430e-11  # Gravitational constant
+M = 5.972e24     # Mass of Earth in kg
+
+# Orbital parameters (Moon orbit)
+orbital_radius = 384400e3  # meters
+orbital_period = 27.3 * 24 * 3600  # seconds (Moon orbital period)
+
+# Verify Kepler's third law calculation
+computed_T_squared = (4 * np.pi**2 * orbital_radius**3) / (G * M)
+computed_period = np.sqrt(computed_T_squared)
+computed_period_days = computed_period / (24 * 3600)
+
+# Figure setup
+fig, ax = plt.subplots(figsize=(7, 7))
+ax.set_xlim(-1.2 * orbital_radius, 1.2 * orbital_radius)
+ax.set_ylim(-1.2 * orbital_radius, 1.2 * orbital_radius)
+ax.set_aspect('equal')
+ax.set_title('Moon Orbiting Earth (Circular Orbit Animation)', fontsize=14)
+
+# Plot Earth
+ax.plot(0, 0, 'bo', markersize=20, label='Earth')
+
+# Plot orbital path (static)
+theta = np.linspace(0, 2*np.pi, 300)
+orbit_path_x = orbital_radius * np.cos(theta)
+orbit_path_y = orbital_radius * np.sin(theta)
+ax.plot(orbit_path_x, orbit_path_y, 'gray', linestyle='--', linewidth=1)
+
+# Initialize Moon position as a Line2D object
+moon, = ax.plot([], [], 'ro', markersize=8, label='Moon')
+
+# Text for displaying the period
+period_text = ax.text(0.02, 0.95, '', transform=ax.transAxes)
+
+# Animation update function
+def update(frame):
+    angle = 2 * np.pi * frame / frames_per_orbit
+    x = orbital_radius * np.cos(angle)
+    y = orbital_radius * np.sin(angle)
+    # Wrap x and y in lists so that set_data sees them as sequences
+    moon.set_data([x], [y])
+    period_text.set_text(
+        f'Orbital Period: {computed_period_days:.2f} days\nFrame: {frame}/{frames_per_orbit}'
+    )
+    return moon, period_text
+
+frames_per_orbit = 200
+ani = FuncAnimation(fig, update, frames=frames_per_orbit, interval=50, blit=True)
+
+ax.legend()
+plt.show()
+
 </code></pre>
 <p>This animation clearly demonstrates a stable circular orbit around a central body (Earth), and the Python computation verifies the accuracy of Kepler’s third law numerically.</p>
 <hr/>
