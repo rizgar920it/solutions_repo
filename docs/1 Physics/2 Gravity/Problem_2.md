@@ -42,7 +42,7 @@ It is derived by equating the object’s kinetic energy to the gravitational pot
 - **Definition:** The velocity required to leave the gravitational influence of the star system from a planet’s orbit.
 - **Formula:**  
   
-  $$v_{esc,\odot} = \sqrt{\frac{2GM_\odot}{r}}$$
+  $$ v_{esc,\odot} = \sqrt{\frac{2GM_\odot}{r}} $$
   
   where:
   - $M_\odot$ is the mass (or, more precisely, the gravitational parameter) of the Sun,
