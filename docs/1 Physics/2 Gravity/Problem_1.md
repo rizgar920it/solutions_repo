@@ -188,6 +188,9 @@ This animation clearly demonstrates a stable circular orbit around a central bod
 ### 5. Explanation of the Simulation Results:
 
 The animation illustrates the orbital mechanics visually, showing a circular orbit around Earth. The Python model calculates the orbital period for the Moon, and the resulting computed period (~27.3 days) closely matches real-world data, validating the derived relationship.
+![alt text](image-6.png)
+![alt text](image-7.png)
+
 
 ---
 
