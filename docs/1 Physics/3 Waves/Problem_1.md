@@ -13,7 +13,7 @@ $$\eta_i(x, y, t) = \frac{A}{\sqrt{r_i}} \cdot \cos\left(k r_i - \omega t + \phi
 
 Where:  
  $A$ is the **amplitude**  
- $r_i = \sqrt{(x - x_i)^2 + (y - y_i)^2}$ is the **distance** from the source $ i $ to point $(x, y) $  
+ $r_i = \sqrt{(x - x_i)^2 + (y - y_i)^2}$ is the **distance** from the source $i$ to point $(x, y)$  
  $k = \frac{2\pi}{\lambda}$ is the **wave number**  
  $\omega = 2\pi f$ is the **angular frequency**  
  $\phi_i$ is the **initial phase** (we can assume it's zero for all sources in coherent case)
