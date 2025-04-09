@@ -80,7 +80,7 @@ plt.ylabel('y')
 plt.axis('equal')
 plt.show()
 ```
-
+![alt text](image-1.png)
 ---
 
 ### ▶ Case 2: **3 Point Sources** (3 corners of a square)
@@ -109,7 +109,7 @@ plt.ylabel('y')
 plt.axis('equal')
 plt.show()
 ```
-
+![alt text](image.png)
 ---
 
 ## 🔎 Observations:
