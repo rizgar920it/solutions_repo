@@ -209,24 +209,26 @@
 \vec{F} = q\vec{E} + q\vec{v} \times \vec{B}
 \]</div>
 <p>Where:
-- $ \vec{F} $: Total force on the particle</p>
+- <span class="arithmatex">\(\vec{F}\)</span>: Total force on the particle</p>
 <ul>
 <li>
-<p>$ q $: Particle charge</p>
+<p><span class="arithmatex">\(q\)</span>: Particle charge</p>
 </li>
 <li>
-<p>$ \vec{E} $: Electric field</p>
+<p><span class="arithmatex">\(\vec{E}\)</span>: Electric field</p>
 </li>
 <li>
-<p>$ \vec{v} $: Particle velocity</p>
+<p><span class="arithmatex">\(\vec{v}\)</span>: Particle velocity</p>
 </li>
 <li>
-<p>$ \vec{B} $: Magnetic field</p>
+<p><span class="arithmatex">\(\vec{B}\)</span>: Magnetic field</p>
 </li>
 </ul>
-<p>This principle is fundamental in fields such as:
-- <strong>Particle accelerators</strong></p>
+<p>This principle is fundamental in fields such as:</p>
 <ul>
+<li>
+<p><strong>Particle accelerators</strong></p>
+</li>
 <li>
 <p><strong>Mass spectrometry</strong></p>
 </li>
@@ -267,10 +269,18 @@
 </table>
 <hr/>
 <h3 id="3-simulation-setup">🧪 <strong>3. Simulation Setup</strong></h3>
-<p>We’ll simulate particle motion under:
-- <strong>Uniform magnetic field</strong>
-- <strong>Uniform electric + magnetic fields</strong>
-- <strong>Crossed electric and magnetic fields (E ⊥ B)</strong></p>
+<p>We’ll simulate particle motion under:</p>
+<ul>
+<li>
+<p><strong>Uniform magnetic field</strong></p>
+</li>
+<li>
+<p><strong>Uniform electric + magnetic fields</strong></p>
+</li>
+<li>
+<p><strong>Crossed electric and magnetic fields (E ⊥ B)</strong></p>
+</li>
+</ul>
 <p>We’ll solve Newton’s second law:
 $$
 m\frac{d\vec{v}}{dt} = q\vec{E} + q\vec{v} \times \vec{B}
@@ -278,7 +288,7 @@ $$</p>
 <h5 id="features">✅ Features:</h5>
 <ul>
 <li>
-<p>Adjustable <strong>$ \vec{E}, \vec{B}, q, m, \vec{v_0} $</strong></p>
+<p>Adjustable  <span class="arithmatex">\(\vec{E}, \vec{B}, q, m, \vec{v_0}\)</span> </p>
 </li>
 <li>
 <p>2D and 3D plots of trajectories</p>
@@ -339,28 +349,42 @@ plt.show()
 <h2 id="_1"><img alt="alt text" src="../image.png"/></h2>
 <h4 id="5-parameter-exploration">🔄 <strong>5. Parameter Exploration</strong></h4>
 <p>Try modifying these:
-- $ B = [0, 0, 1] \rightarrow [0, 1, 1] $</p>
+- <span class="arithmatex">\(B = [0, 0, 1] \rightarrow [0, 1, 1]\)</span></p>
 <ul>
 <li>
-<p>$ E = [0, 0, 0] \rightarrow [1, 0, 0] $</p>
+<p><span class="arithmatex">\(E = [0, 0, 0] \rightarrow [1, 0, 0]\)</span></p>
 </li>
 <li>
-<p>$ q = +1 \rightarrow -1 $</p>
+<p><span class="arithmatex">\(q = +1 \rightarrow -1\)</span></p>
 </li>
 <li>
-<p>$ v_0 = [1, 0, 0] \rightarrow [1, 1, 0] $</p>
+<p><span class="arithmatex">\(v_0 = [1, 0, 0] \rightarrow [1, 1, 0]\)</span></p>
 </li>
 </ul>
 <p><strong>Observe:</strong>
-- Circular motion under only B
-- Helical motion with both E and B
-- Drift motion in crossed E and B</p>
+- Circular motion under only B</p>
+<ul>
+<li>
+<p>Helical motion with both E and B</p>
+</li>
+<li>
+<p>Drift motion in crossed E and B</p>
+</li>
+</ul>
 <hr/>
 <h4 id="6-visualizations">📊 <strong>6. Visualizations</strong></h4>
-<p>We'll generate:
-- <strong>2D XY/ZY projections</strong> for planar motion
-- <strong>3D plots</strong> for helices and drifts
-- Optionally: animation of the path over time</p>
+<p>We'll generate:</p>
+<ul>
+<li>
+<p><strong>2D XY/ZY projections</strong> for planar motion</p>
+</li>
+<li>
+<p><strong>3D plots</strong> for helices and drifts</p>
+</li>
+<li>
+<p>Optionally: animation of the path over time</p>
+</li>
+</ul>
 <hr/>
 <h4 id="7-discussion-real-world-implications">💡 <strong>7. Discussion: Real-World Implications</strong></h4>
 <table>
@@ -390,7 +414,7 @@ plt.show()
 <ul>
 <li>
 <p><strong>Non-uniform fields</strong>:
- Varying $ \vec{E}(r), \vec{B}(r) $</p>
+ Varying <span class="arithmatex">\(\vec{E}(r), \vec{B}(r)\)</span></p>
 </li>
 <li>
 <p><strong>Relativistic corrections</strong> for high-speed particles</p>
