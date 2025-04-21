@@ -72,6 +72,30 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#the-lorentz-force-in-action-simulating-charged-particle-motion">⚡ The Lorentz Force in Action: Simulating Charged Particle Motion</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#1-introduction">📌 1. Introduction</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#2-exploration-of-applications">🔬 2. Exploration of Applications</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#3-simulation-setup">🧪 3. Simulation Setup</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#4-python-code-snippet-skeleton">🧮 4. Python Code Snippet (Skeleton)</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#_1"></a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#5-parameter-exploration">🔄 5. Parameter Exploration</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#6-visualizations">📊 6. Visualizations</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#7-discussion-real-world-implications">💡 7. Discussion: Real-World Implications</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#8-future-extensions">🧠 8. Future Extensions</a>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -172,6 +196,168 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<hr/>
+<h3 id="the-lorentz-force-in-action-simulating-charged-particle-motion">⚡ <strong>The Lorentz Force in Action: Simulating Charged Particle Motion</strong></h3>
+<hr/>
+<h4 id="1-introduction">📌 <strong>1. Introduction</strong></h4>
+<p>The <strong>Lorentz force</strong> governs how charged particles move in the presence of electric and magnetic fields:</p>
+<div class="arithmatex">\[
+\vec{F} = q\vec{E} + q\vec{v} \times \vec{B}
+\]</div>
+<p>Where:
+- $ \vec{F} $: Total force on the particle
+- $ q $: Particle charge
+- $ \vec{E} $: Electric field
+- $ \vec{v} $: Particle velocity
+- $ \vec{B} $: Magnetic field</p>
+<p>This principle is fundamental in fields such as:
+- <strong>Particle accelerators</strong>
+- <strong>Mass spectrometry</strong>
+- <strong>Plasma confinement systems</strong>
+- <strong>Astrophysical particle dynamics</strong></p>
+<hr/>
+<h4 id="2-exploration-of-applications">🔬 <strong>2. Exploration of Applications</strong></h4>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>Role of Lorentz Force</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cyclotrons</strong></td>
+<td>Magnetic fields bend charged particles into circular paths.</td>
+</tr>
+<tr>
+<td><strong>Mass Spectrometers</strong></td>
+<td>Electric and magnetic fields help identify ions by their mass-to-charge ratio.</td>
+</tr>
+<tr>
+<td><strong>Plasma Confinement (e.g., Tokamaks)</strong></td>
+<td>Magnetic fields confine plasma and control its motion.</td>
+</tr>
+<tr>
+<td><strong>Auroras / Astrophysics</strong></td>
+<td>Charged particles spiral along Earth’s magnetic field lines.</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h4 id="3-simulation-setup">🧪 <strong>3. Simulation Setup</strong></h4>
+<p>We’ll simulate particle motion under:
+- <strong>Uniform magnetic field</strong>
+- <strong>Uniform electric + magnetic fields</strong>
+- <strong>Crossed electric and magnetic fields (E ⊥ B)</strong></p>
+<p>We’ll solve Newton’s second law:
+$$
+m\frac{d\vec{v}}{dt} = q\vec{E} + q\vec{v} \times \vec{B}
+$$</p>
+<h5 id="features">✅ Features:</h5>
+<ul>
+<li>Adjustable <strong>$ \vec{E}, \vec{B}, q, m, \vec{v_0} $</strong></li>
+<li>2D and 3D plots of trajectories</li>
+<li>Real-time visualization</li>
+</ul>
+<hr/>
+<h4 id="4-python-code-snippet-skeleton">🧮 <strong>4. Python Code Snippet (Skeleton)</strong></h4>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Constants
+q = 1.0     # Charge
+m = 1.0     # Mass
+dt = 0.01   # Time step
+steps = 1000
+
+# Fields
+E = np.array([0.0, 0.0, 0.0])         # Electric field
+B = np.array([0.0, 0.0, 1.0])         # Magnetic field
+
+# Initial conditions
+v = np.array([1.0, 0.0, 0.0])         # Initial velocity
+r = np.array([0.0, 0.0, 0.0])         # Initial position
+
+trajectory = []
+
+# Time evolution
+for _ in range(steps):
+    # Store current position
+    trajectory.append(r.copy())
+
+    # Compute Lorentz force
+    F = q * (E + np.cross(v, B))
+    a = F / m
+
+    # Update velocity and position
+    v = v + a * dt
+    r = r + v * dt
+
+trajectory = np.array(trajectory)
+
+# Visualization
+fig = plt.figure(figsize=(8, 6))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(trajectory[:, 0], trajectory[:, 1], trajectory[:, 2])
+ax.set_title("Particle Trajectory under Lorentz Force")
+ax.set_xlabel("X")
+ax.set_ylabel("Y")
+ax.set_zlabel("Z")
+plt.tight_layout()
+plt.show()
+
+</code></pre>
+<h2 id="_1"><img alt="alt text" src="../image.png"/></h2>
+<h4 id="5-parameter-exploration">🔄 <strong>5. Parameter Exploration</strong></h4>
+<p>Try modifying these:
+- $ B = [0, 0, 1] \rightarrow [0, 1, 1] $
+- $ E = [0, 0, 0] \rightarrow [1, 0, 0] $
+- $ q = +1 \rightarrow -1 $
+- $ v_0 = [1, 0, 0] \rightarrow [1, 1, 0] $</p>
+<p><strong>Observe:</strong>
+- Circular motion under only B
+- Helical motion with both E and B
+- Drift motion in crossed E and B</p>
+<hr/>
+<h4 id="6-visualizations">📊 <strong>6. Visualizations</strong></h4>
+<p>We'll generate:
+- <strong>2D XY/ZY projections</strong> for planar motion
+- <strong>3D plots</strong> for helices and drifts
+- Optionally: animation of the path over time</p>
+<hr/>
+<h4 id="7-discussion-real-world-implications">💡 <strong>7. Discussion: Real-World Implications</strong></h4>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>What Simulation Shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cyclotron</strong></td>
+<td>Circular motion in constant B field. Frequency depends on $ q/m $.</td>
+</tr>
+<tr>
+<td><strong>Mass Spectrometer</strong></td>
+<td>Trajectories bend more for lighter particles.</td>
+</tr>
+<tr>
+<td><strong>Magnetic Traps</strong></td>
+<td>Particles spiral and are confined in B field “bottles”.</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h4 id="8-future-extensions">🧠 <strong>8. Future Extensions</strong></h4>
+<ul>
+<li><strong>Non-uniform fields</strong>: Varying $ \vec{E}(r), \vec{B}(r) $</li>
+<li><strong>Relativistic corrections</strong> for high-speed particles</li>
+<li><strong>Collisions</strong>: Add interactions between particles</li>
+<li><strong>Multiple particles</strong>: Simulate beam dynamics or plasma</li>
+</ul>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
