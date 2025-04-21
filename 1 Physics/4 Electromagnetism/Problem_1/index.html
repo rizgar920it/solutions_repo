@@ -76,13 +76,17 @@
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#1-introduction">📌 1. Introduction</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#2-exploration-of-applications">🔬 2. Exploration of Applications</a>
+</ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#3-simulation-setup">🧪 3. Simulation Setup</a>
+<li class="toctree-l3"><a class="reference internal" href="#2-exploration-of-applications">🔬 2. Exploration of Applications</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#4-python-code-snippet-skeleton">🧮 4. Python Code Snippet (Skeleton)</a>
+<li class="toctree-l3"><a class="reference internal" href="#3-simulation-setup">🧪 3. Simulation Setup</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#features">✅ Features:</a>
 </li>
 </ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#4-python-code-snippet-skeleton">🧮 4. Python Code Snippet (Skeleton)</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#_1"></a>
 <ul>
@@ -205,18 +209,36 @@
 \vec{F} = q\vec{E} + q\vec{v} \times \vec{B}
 \]</div>
 <p>Where:
-- $ \vec{F} $: Total force on the particle
-- $ q $: Particle charge
-- $ \vec{E} $: Electric field
-- $ \vec{v} $: Particle velocity
-- $ \vec{B} $: Magnetic field</p>
+- $ \vec{F} $: Total force on the particle</p>
+<ul>
+<li>
+<p>$ q $: Particle charge</p>
+</li>
+<li>
+<p>$ \vec{E} $: Electric field</p>
+</li>
+<li>
+<p>$ \vec{v} $: Particle velocity</p>
+</li>
+<li>
+<p>$ \vec{B} $: Magnetic field</p>
+</li>
+</ul>
 <p>This principle is fundamental in fields such as:
-- <strong>Particle accelerators</strong>
-- <strong>Mass spectrometry</strong>
-- <strong>Plasma confinement systems</strong>
-- <strong>Astrophysical particle dynamics</strong></p>
+- <strong>Particle accelerators</strong></p>
+<ul>
+<li>
+<p><strong>Mass spectrometry</strong></p>
+</li>
+<li>
+<p><strong>Plasma confinement systems</strong></p>
+</li>
+<li>
+<p><strong>Astrophysical particle dynamics</strong></p>
+</li>
+</ul>
 <hr/>
-<h4 id="2-exploration-of-applications">🔬 <strong>2. Exploration of Applications</strong></h4>
+<h3 id="2-exploration-of-applications">🔬 <strong>2. Exploration of Applications</strong></h3>
 <table>
 <thead>
 <tr>
@@ -244,7 +266,7 @@
 </tbody>
 </table>
 <hr/>
-<h4 id="3-simulation-setup">🧪 <strong>3. Simulation Setup</strong></h4>
+<h3 id="3-simulation-setup">🧪 <strong>3. Simulation Setup</strong></h3>
 <p>We’ll simulate particle motion under:
 - <strong>Uniform magnetic field</strong>
 - <strong>Uniform electric + magnetic fields</strong>
@@ -255,12 +277,18 @@ m\frac{d\vec{v}}{dt} = q\vec{E} + q\vec{v} \times \vec{B}
 $$</p>
 <h5 id="features">✅ Features:</h5>
 <ul>
-<li>Adjustable <strong>$ \vec{E}, \vec{B}, q, m, \vec{v_0} $</strong></li>
-<li>2D and 3D plots of trajectories</li>
-<li>Real-time visualization</li>
+<li>
+<p>Adjustable <strong>$ \vec{E}, \vec{B}, q, m, \vec{v_0} $</strong></p>
+</li>
+<li>
+<p>2D and 3D plots of trajectories</p>
+</li>
+<li>
+<p>Real-time visualization</p>
+</li>
 </ul>
 <hr/>
-<h4 id="4-python-code-snippet-skeleton">🧮 <strong>4. Python Code Snippet (Skeleton)</strong></h4>
+<h3 id="4-python-code-snippet-skeleton">🧮 <strong>4. Python Code Snippet (Skeleton)</strong></h3>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
@@ -311,10 +339,18 @@ plt.show()
 <h2 id="_1"><img alt="alt text" src="../image.png"/></h2>
 <h4 id="5-parameter-exploration">🔄 <strong>5. Parameter Exploration</strong></h4>
 <p>Try modifying these:
-- $ B = [0, 0, 1] \rightarrow [0, 1, 1] $
-- $ E = [0, 0, 0] \rightarrow [1, 0, 0] $
-- $ q = +1 \rightarrow -1 $
-- $ v_0 = [1, 0, 0] \rightarrow [1, 1, 0] $</p>
+- $ B = [0, 0, 1] \rightarrow [0, 1, 1] $</p>
+<ul>
+<li>
+<p>$ E = [0, 0, 0] \rightarrow [1, 0, 0] $</p>
+</li>
+<li>
+<p>$ q = +1 \rightarrow -1 $</p>
+</li>
+<li>
+<p>$ v_0 = [1, 0, 0] \rightarrow [1, 1, 0] $</p>
+</li>
+</ul>
 <p><strong>Observe:</strong>
 - Circular motion under only B
 - Helical motion with both E and B
@@ -352,10 +388,19 @@ plt.show()
 <hr/>
 <h4 id="8-future-extensions">🧠 <strong>8. Future Extensions</strong></h4>
 <ul>
-<li><strong>Non-uniform fields</strong>: Varying $ \vec{E}(r), \vec{B}(r) $</li>
-<li><strong>Relativistic corrections</strong> for high-speed particles</li>
-<li><strong>Collisions</strong>: Add interactions between particles</li>
-<li><strong>Multiple particles</strong>: Simulate beam dynamics or plasma</li>
+<li>
+<p><strong>Non-uniform fields</strong>:
+ Varying $ \vec{E}(r), \vec{B}(r) $</p>
+</li>
+<li>
+<p><strong>Relativistic corrections</strong> for high-speed particles</p>
+</li>
+<li>
+<p><strong>Collisions</strong>: Add interactions between particles</p>
+</li>
+<li>
+<p><strong>Multiple particles</strong>: Simulate beam dynamics or plasma</p>
+</li>
 </ul>
 <hr/>
 </div>
