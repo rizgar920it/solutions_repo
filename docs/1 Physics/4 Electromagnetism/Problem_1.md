@@ -16,20 +16,29 @@ $$
 
 Where:
 - $ \vec{F} $: Total force on the particle
+
 - $ q $: Particle charge
+
 - $ \vec{E} $: Electric field
+
 - $ \vec{v} $: Particle velocity
+
 - $ \vec{B} $: Magnetic field
+
 
 This principle is fundamental in fields such as:
 - **Particle accelerators**
+
 - **Mass spectrometry**
+
 - **Plasma confinement systems**
+
 - **Astrophysical particle dynamics**
+
 
 ---
 
-#### 🔬 **2. Exploration of Applications**
+### 🔬 **2. Exploration of Applications**
 
 | System | Role of Lorentz Force |
 |--------|------------------------|
@@ -40,7 +49,7 @@ This principle is fundamental in fields such as:
 
 ---
 
-#### 🧪 **3. Simulation Setup**
+### 🧪 **3. Simulation Setup**
 
 We’ll simulate particle motion under:
 - **Uniform magnetic field**
@@ -54,12 +63,14 @@ $$
 
 ##### ✅ Features:
 - Adjustable **$ \vec{E}, \vec{B}, q, m, \vec{v_0} $**
+
 - 2D and 3D plots of trajectories
+
 - Real-time visualization
 
 ---
 
-#### 🧮 **4. Python Code Snippet (Skeleton)**
+### 🧮 **4. Python Code Snippet (Skeleton)**
 
 ```python
 import numpy as np
@@ -116,9 +127,13 @@ plt.show()
 
 Try modifying these:
 - $ B = [0, 0, 1] \rightarrow [0, 1, 1] $
+
 - $ E = [0, 0, 0] \rightarrow [1, 0, 0] $
+
 - $ q = +1 \rightarrow -1 $
+
 - $ v_0 = [1, 0, 0] \rightarrow [1, 1, 0] $
+
 
 **Observe:**
 - Circular motion under only B
@@ -148,9 +163,13 @@ We'll generate:
 
 #### 🧠 **8. Future Extensions**
 
-- **Non-uniform fields**: Varying $ \vec{E}(r), \vec{B}(r) $
+- **Non-uniform fields**:
+ Varying $ \vec{E}(r), \vec{B}(r) $
+
 - **Relativistic corrections** for high-speed particles
+
 - **Collisions**: Add interactions between particles
+
 - **Multiple particles**: Simulate beam dynamics or plasma
 
 ---
