@@ -15,18 +15,19 @@ $$
 $$
 
 Where:
-- $ \vec{F} $: Total force on the particle
+- $\vec{F}$: Total force on the particle
 
-- $ q $: Particle charge
+- $q$: Particle charge
 
-- $ \vec{E} $: Electric field
+- $\vec{E}$: Electric field
 
-- $ \vec{v} $: Particle velocity
+- $\vec{v}$: Particle velocity
 
-- $ \vec{B} $: Magnetic field
+- $\vec{B}$: Magnetic field
 
 
 This principle is fundamental in fields such as:
+
 - **Particle accelerators**
 
 - **Mass spectrometry**
@@ -52,9 +53,13 @@ This principle is fundamental in fields such as:
 ### 🧪 **3. Simulation Setup**
 
 We’ll simulate particle motion under:
+
 - **Uniform magnetic field**
+
 - **Uniform electric + magnetic fields**
+
 - **Crossed electric and magnetic fields (E ⊥ B)**
+
 
 We’ll solve Newton’s second law:
 $$
@@ -62,7 +67,7 @@ m\frac{d\vec{v}}{dt} = q\vec{E} + q\vec{v} \times \vec{B}
 $$
 
 ##### ✅ Features:
-- Adjustable **$ \vec{E}, \vec{B}, q, m, \vec{v_0} $**
+- Adjustable  $\vec{E}, \vec{B}, q, m, \vec{v_0}$ 
 
 - 2D and 3D plots of trajectories
 
@@ -126,28 +131,35 @@ plt.show()
 #### 🔄 **5. Parameter Exploration**
 
 Try modifying these:
-- $ B = [0, 0, 1] \rightarrow [0, 1, 1] $
+- $B = [0, 0, 1] \rightarrow [0, 1, 1]$
 
-- $ E = [0, 0, 0] \rightarrow [1, 0, 0] $
+- $E = [0, 0, 0] \rightarrow [1, 0, 0]$
 
-- $ q = +1 \rightarrow -1 $
+- $q = +1 \rightarrow -1$
 
-- $ v_0 = [1, 0, 0] \rightarrow [1, 1, 0] $
+- $v_0 = [1, 0, 0] \rightarrow [1, 1, 0]$
 
 
 **Observe:**
 - Circular motion under only B
+
 - Helical motion with both E and B
+
 - Drift motion in crossed E and B
+
 
 ---
 
 #### 📊 **6. Visualizations**
 
 We'll generate:
+
 - **2D XY/ZY projections** for planar motion
+
 - **3D plots** for helices and drifts
+
 - Optionally: animation of the path over time
+
 
 ---
 
@@ -164,7 +176,7 @@ We'll generate:
 #### 🧠 **8. Future Extensions**
 
 - **Non-uniform fields**:
- Varying $ \vec{E}(r), \vec{B}(r) $
+ Varying $\vec{E}(r), \vec{B}(r)$
 
 - **Relativistic corrections** for high-speed particles
 
