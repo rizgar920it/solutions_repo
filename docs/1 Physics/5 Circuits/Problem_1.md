@@ -35,6 +35,7 @@ Great! Here's a complete solution for the **Equivalent Resistance Using Graph Th
 - For cyclic graphs: Integration with more robust linear algebra backends (e.g., `scipy.sparse`) would improve performance.
 
 ---
+```python
 
 import networkx as nx
 
