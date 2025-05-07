@@ -85,8 +85,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../Problem_1/">Problem 1</a>
 </li>
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
-<ul class="current">
-</ul>
 </li>
 </ul>
 </li>
@@ -171,7 +169,81 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-2">Problem 2</h1>
+<p><strong>Planning assignments for Pi estimation</strong></p>
+<p>The user needs a detailed report for "Estimating Pi using Monte Carlo Methods" with two parts: a circle-based method and Buffon's Needle. They expect explanations with formulas, Python code for simulations, graphical plots (random points and needle positions), and analysis on convergence.</p>
+<p>We’ll provide a clear explanation, implement the code, generate plots, and analyze the convergence of the estimates. The tool should be helpful for displaying the interactive components like plots and tables for the user.</p>
+<p><strong>Implementing Pi estimation methods</strong></p>
+<p>For the user’s request on estimating Pi using Monte Carlo, I need to provide explanations in a text format and generate code for both methods—circle-based Monte Carlo and Buffon's Needle simulation. Each method requires a plot displaying the points or needle positions and convergence visualization. I’ve got to ensure I use python_user_visible for the code and graphs, but avoid directly specifying colors in the plots, keeping it in line with guidelines. Next steps: prepare code and create separate plots for each method and their convergences.</p>
+<p><strong>Planning the code and plots</strong></p>
+<p>For the Pi estimation task, I'll generate separate plots without specifying colors. Matplotlib’s default color cycle will handle that. Buffon's Needle requires horizontal lines, and I’ll avoid specifying colors or line styles. We’ll need a scatter plot for the circle simulation, a similar plot for the needle, and then line plots for convergence. Each plot will be handled separately, with a total of four visualizations. I might also create a DataFrame for iteration counts versus Pi estimates, but only if it really adds value. I'll build the functions and run the code.</p>
+<p><strong>Planning the plot and simulation</strong></p>
+<p>I’m preparing the code to simulate both the Circle Monte Carlo and Buffon’s Needle methods. To follow the rules, I'll avoid using colors explicitly. For the circle plot, default color will differentiate points inside and outside. I should also use random orientations for the needles while setting up horizontal lines for the simulation. For the convergence plots, each way of estimating Pi will have its own figure, and I’ll also display a DataFrame if needed. We’ll carefully handle edge cases such as zero crossings.</p>
+<p>Thought for 3m 2s</p>
+<p>Below you’ll find a compact walk‑through of both Monte Carlo approaches, accompanied by the code, visualisations and a ready‑to‑use Python script.</p>
+<hr/>
+<p>## Part 1 – Random points in a square</p>
+<p>### 1 · Why it works</p>
+<ul>
+<li>Place a unit circle (radius = 1) inside a 2 × 2 square.</li>
+<li>Area of circle = π · 1². Area of square = (2)² = 4.</li>
+<li>The probability that a uniformly random point lands <strong>inside</strong> the circle is</li>
+</ul>
+<div class="arithmatex">\[
+P(\text{inside})=\frac{\text{area circle}}{\text{area square}}=\frac{\pi}{4}.
+\]</div>
+<ul>
+<li>If we throw <span class="arithmatex">\(N\)</span> points and <span class="arithmatex">\(K\)</span> fall inside, the frequentist estimate is</li>
+</ul>
+<div class="arithmatex">\[
+\hat P=\frac{K}{N}\;\Longrightarrow\;
+\boxed{\displaystyle\pi\approx4\,\frac{K}{N}}.
+\]</div>
+<p>### 2 · Simulation → code &amp; scatter
+The first plot (titled <em>Circle Monte Carlo</em>) shows 5 000 points; those inside the circle are automatically coloured differently from the outside set.  The caption displays the instantaneous estimate (≈ 3.142 4).  The code you saw run:</p>
+<ul>
+<li>Generates <span class="arithmatex">\(x,y\sim U[-1,1]\)</span>.</li>
+<li>Checks <span class="arithmatex">\(x^{2}+y^{2}\le1\)</span>.</li>
+<li>Computes <span class="arithmatex">\(4\,K/N\)</span>.</li>
+</ul>
+<p>### 3 · Convergence
+A separate log‑scale chart tracks the estimate for <span class="arithmatex">\(N=10^{2}\)</span> … <span class="arithmatex">\(10^{5}\)</span>.  The orange horizontal line is the true π; the curve collapses toward it roughly like <span class="arithmatex">\(1/\sqrt{N}\)</span>, as expected from the Central‑Limit‑Theorem.</p>
+<hr/>
+<p>## Part 2 – Buffon’s Needle</p>
+<p>### 1 · Why it works
+Buffon (1777) considered dropping a needle of length <span class="arithmatex">\(L\)</span> on a floor ruled with parallel lines <span class="arithmatex">\(d\)</span> apart.  Let</p>
+<ul>
+<li><span class="arithmatex">\(θ\)</span> = acute angle between needle and the lines,</li>
+<li><span class="arithmatex">\(x\)</span> = distance from the needle’s centre to the nearest line.</li>
+</ul>
+<p>A crossing occurs when the projection of half the needle extends beyond the nearest line:
+<span class="arithmatex">\(x\le\frac{L}{2}\sin θ\)</span>.</p>
+<p>Integrating the joint pdf of <span class="arithmatex">\((θ,x)\)</span> over the “crossing” region gives</p>
+<div class="arithmatex">\[
+P(\text{cross})=\frac{2L}{d\pi},\qquad\text{for }L\le d.
+\]</div>
+<p>Hence for <span class="arithmatex">\(N\)</span> drops with <span class="arithmatex">\(C\)</span> crossings,</p>
+<div class="arithmatex">\[
+\boxed{\displaystyle \pi\approx\frac{2LN}{dC}}.
+\]</div>
+<p>### 2 · Simulation → code &amp; visual
+In the run above we set <span class="arithmatex">\(L=d=1\)</span>.  Five thousand drops yielded an estimate ≈ 3.152 6.  The “Buffon’s Needle” figure shows 200 representative needles over several horizontal lines.</p>
+<p>### 3 · Convergence
+The final plot tracks the estimate against <span class="arithmatex">\(N\)</span>.  Because each experiment records only “cross / no‑cross”, convergence is a bit noisier than the circle method, but it tends to π at the same <span class="arithmatex">\(O(N^{-1/2})\)</span> rate.</p>
+<hr/>
+<p>## Results table
+Open the interactive table labelled <strong>π convergence</strong> (below the plots) for exact numbers, absolute errors and sample sizes for both algorithms.</p>
+<hr/>
+<p>## Ready‑made code
+A self‑contained module <strong><code>pi_estimators.py</code></strong> (circle &amp; Buffon functions plus a CLI demo) was saved for you.</p>
+<hr/>
+<p><strong>Circle Monte Carlo (N=5000) Π ≈ 3.142400</strong>
+<img alt="alt text" src="../image-3.png"/>
+<strong>Buffon's Needle (Visual, N=5000) Π ≈ 3.152585</strong>
+<img alt="alt text" src="../image-4.png"/>
+<strong>Convergence Of Circle Monte Carlo</strong>
+<img alt="alt text" src="../image-5.png"/>
+<strong>Convergence Of Buffon's Needle</strong>
+<img alt="alt text" src="../image-6.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
