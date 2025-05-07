@@ -171,7 +171,105 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-1">Problem 1</h1>
+<p>To explore the Central Limit Theorem (CLT) through simulations, we'll examine three population distributions: Uniform, Exponential, and Binomial. We'll generate sampling distributions of the sample mean for varying sample sizes and observe their convergence to a normal distribution.</p>
+<h3 id="1-simulating-sampling-distributions">1. Simulating Sampling Distributions</h3>
+<p>We create large populations (100,000 data points) for each distribution:
+- <strong>Uniform</strong>: <code>np.random.uniform(0, 1)</code>
+- <strong>Exponential</strong>: <code>np.random.exponential(1)</code>
+- <strong>Binomial</strong>: <code>np.random.binomial(n=10, p=0.3)</code></p>
+<h3 id="2-sampling-and-visualization">2. Sampling and Visualization</h3>
+<p>For each population, we:
+1. Randomly sample data with sizes <code>[5, 10, 30, 50]</code>.
+2. Calculate the sample mean 10,000 times to build the sampling distribution.
+3. Plot histograms of these means using <code>seaborn.histplot</code> with KDE.</p>
+<h3 id="3-parameter-exploration">3. Parameter Exploration</h3>
+<ul>
+<li><strong>Convergence Rate</strong>: Symmetric distributions (Uniform) converge faster than skewed ones (Exponential, Binomial).</li>
+<li><strong>Variance Impact</strong>: The spread of sampling distributions decreases as sample size increases, following <span class="arithmatex">\(\sigma^2/n\)</span>.</li>
+</ul>
+<h3 id="4-practical-applications">4. Practical Applications</h3>
+<p>The CLT justifies using normal approximations for inference (e.g., confidence intervals) even when the population is non-normal, provided the sample size is sufficiently large.</p>
+<hr/>
+<h2 id="python-implementation">Python Implementation</h2>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Configuration
+population_size = 100000
+num_simulations = 10000
+sample_sizes = [5, 10, 30, 50]
+np.random.seed(42)
+
+# Generate population distributions
+populations = {
+    'Uniform': np.random.uniform(0, 1, population_size),
+    'Exponential': np.random.exponential(1, population_size),
+    'Binomial': np.random.binomial(n=10, p=0.3, size=population_size)
+}
+
+# Plot settings
+sns.set_theme(style="whitegrid")
+plt.figure(figsize=(14, 10))
+
+for idx, (dist_name, population) in enumerate(populations.items(), 1):
+    pop_mean = population.mean()
+    pop_var = population.var()
+
+    plt.figure(figsize=(12, 8))
+    plt.suptitle(f"Sampling Distribution for {dist_name} (μ={pop_mean:.2f}, σ²={pop_var:.2f})")
+
+    for i, n in enumerate(sample_sizes, 1):
+        # Generate sample means
+        samples = np.random.choice(population, (num_simulations, n))
+        sample_means = samples.mean(axis=1)
+
+        # Plot histogram
+        plt.subplot(2, 2, i)
+        sns.histplot(sample_means, kde=True, stat='density')
+        plt.title(f'n = {n}')
+        plt.xlabel('Sample Mean')
+
+        # Annotate with statistics
+        sm_mean = sample_means.mean()
+        sm_std = sample_means.std()
+        plt.annotate(f'Mean: {sm_mean:.2f}\nStd: {sm_std:.2f}', 
+                     xy=(0.65, 0.85), xycoords='axes fraction',
+                     bbox=dict(boxstyle="round", fc="white"))
+
+    plt.tight_layout()
+    plt.show()
+</code></pre>
+<hr/>
+<h2 id="results-and-discussion">Results and Discussion</h2>
+<h3 id="key-observations">Key Observations:</h3>
+<ol>
+<li><strong>Uniform Distribution</strong>:</li>
+<li>Even at small sample sizes (n=5), the sampling distribution is approximately normal due to the population's symmetry.</li>
+<li>
+<p>Variance decreases as <span class="arithmatex">\(1/(12n)\)</span> (theoretical variance for Uniform(0,1) is <span class="arithmatex">\(1/12\)</span>).</p>
+</li>
+<li>
+<p><strong>Exponential Distribution</strong>:</p>
+</li>
+<li>Strong right skewness in the population requires larger samples (n ≥ 30) for the sampling distribution to approximate normality.</li>
+<li>
+<p>Variance reduction follows <span class="arithmatex">\(\lambda^{-2}/n\)</span> (here, <span class="arithmatex">\(\lambda=1\)</span>).</p>
+</li>
+<li>
+<p><strong>Binomial Distribution</strong>:</p>
+</li>
+<li>Discrete and skewed (p=0.3), requiring n ≥ 30 for normality.</li>
+<li>Variance matches the theoretical <span class="arithmatex">\(np(1-p)/n = p(1-p)\)</span>.</li>
+</ol>
+<h3 id="theoretical-alignment">Theoretical Alignment:</h3>
+<ul>
+<li><strong>Mean Convergence</strong>: Sample means align with the population mean (CLT: <span class="arithmatex">\(\mu_{\bar{X}} = \mu\)</span>).</li>
+<li><strong>Variance Scaling</strong>: Observed variance of sample means matches <span class="arithmatex">\(\sigma^2/n\)</span>.</li>
+</ul>
+<h3 id="implications">Implications:</h3>
+<p>The CLT enables parametric methods (e.g., t-tests) for non-normal populations by relying on the normality of sample means. This underpins confidence intervals and hypothesis testing in practical statistics.
+<img alt="alt text" src="../image.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
