@@ -98,3 +98,5 @@ for idx, (dist_name, population) in enumerate(populations.items(), 1):
 ### Implications:
 The CLT enables parametric methods (e.g., t-tests) for non-normal populations by relying on the normality of sample means. This underpins confidence intervals and hypothesis testing in practical statistics.
 ![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
