@@ -92,6 +92,22 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#measuring-gravity-with-a-pendulum">Measuring Gravity with a Pendulum</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#goal">Goal</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#steps">Steps</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#calculations">Calculations</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#results">Results</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#discussion-points">Discussion Points</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#example-of-what-i-need-from-you">Example of what I need from you:</a>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -172,6 +188,183 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<hr/>
+<h2 id="measuring-gravity-with-a-pendulum"><strong>Measuring Gravity with a Pendulum</strong></h2>
+<h3 id="goal"><strong>Goal</strong></h3>
+<p>Find the value of gravitational acceleration <span class="arithmatex">\(g\)</span> using a simple pendulum and understand how measurement errors affect the result.</p>
+<hr/>
+<h3 id="steps"><strong>Steps</strong></h3>
+<h4 id="1-materials-needed"><strong>1. Materials Needed</strong></h4>
+<ul>
+<li>A 1-meter string.</li>
+<li>A small weight (e.g., keychain, coins).</li>
+<li>Stopwatch or smartphone timer.</li>
+<li>Ruler or tape measure.</li>
+</ul>
+<h4 id="2-setup"><strong>2. Setup</strong></h4>
+<ul>
+<li>Hang the weight from the string.</li>
+<li>Measure the length of the pendulum (from the top to the middle of the weight).</li>
+<li>Note the measurement uncertainty:
+  <span class="arithmatex">\(\Delta L = \frac{\text{Ruler Resolution}}{2}\)</span>.</li>
+</ul>
+<h4 id="3-taking-measurements"><strong>3. Taking Measurements</strong></h4>
+<ul>
+<li>Swing the pendulum gently (less than 15°).</li>
+<li>Time how long it takes for <strong>10 swings</strong>.</li>
+<li>Do this <strong>10 times</strong> and record the results.</li>
+<li>
+<p>Calculate:</p>
+</li>
+<li>
+<p>The average time (<span class="arithmatex">\(\overline{T_{10}}\)</span>).</p>
+</li>
+<li>The variation (standard deviation <span class="arithmatex">\(\sigma_T\)</span>).</li>
+<li>The uncertainty in timing:
+    <span class="arithmatex">\(\Delta T_{10} = \frac{\sigma_T}{\sqrt{10}}\)</span>.</li>
+</ul>
+<hr/>
+<h3 id="calculations"><strong>Calculations</strong></h3>
+<h4 id="1-find-period-of-one-swing"><strong>1. Find Period of One Swing</strong></h4>
+<div class="arithmatex">\[
+T = \frac{\overline{T_{10}}}{10}
+\]</div>
+<div class="arithmatex">\[
+\Delta T = \frac{\Delta T_{10}}{10}
+\]</div>
+<h4 id="2-calculate-g"><strong>2. Calculate <span class="arithmatex">\(g\)</span></strong></h4>
+<div class="arithmatex">\[
+g = \frac{4\pi^2 L}{T^2}
+\]</div>
+<h4 id="3-calculate-uncertainty-in-g"><strong>3. Calculate Uncertainty in <span class="arithmatex">\(g\)</span></strong></h4>
+<div class="arithmatex">\[
+\Delta g = g \sqrt{ \left( \frac{\Delta L}{L} \right)^2 + \left( 2 \frac{\Delta T}{T} \right)^2 }
+\]</div>
+<hr/>
+<h3 id="results"><strong>Results</strong></h3>
+<ul>
+<li>You will get a value for <span class="arithmatex">\(g\)</span> (close to 9.81 m/s² if done well).</li>
+<li>You will also see how small errors in measuring time and length affect your result.</li>
+</ul>
+<hr/>
+<h3 id="discussion-points"><strong>Discussion Points</strong></h3>
+<ul>
+<li>How accurate was your ruler? (<span class="arithmatex">\(\Delta L\)</span>)</li>
+<li>How much did your timing vary? (<span class="arithmatex">\(\Delta T\)</span>)</li>
+<li>Any possible mistakes (air resistance, timing reaction, etc.).</li>
+</ul>
+<hr/>
+<p>Would you like me to give you the <strong>final answer values</strong> in this simpler style too? (Just numbers and conclusion)
+Reply "Yes, final values" if you want! 😊</p>
+<ol>
+<li><strong>Pendulum length (L)</strong> and the <strong>resolution of your measuring tool</strong>.</li>
+<li><strong>10 measurements of time (T₁₀)</strong> for 10 full oscillations each.</li>
+</ol>
+<p>With this, I can:</p>
+<ul>
+<li>Calculate the mean time <span class="arithmatex">\(\overline{T_{10}}\)</span>,</li>
+<li>Compute the standard deviation <span class="arithmatex">\(\sigma_T\)</span>,</li>
+<li>Calculate <span class="arithmatex">\(\Delta T_{10}\)</span> and <span class="arithmatex">\(\Delta T\)</span>,</li>
+<li>Compute <span class="arithmatex">\(g\)</span> and <span class="arithmatex">\(\Delta g\)</span>,</li>
+<li>Compare your result with the standard <span class="arithmatex">\(g = 9.81 \, \text{m/s}^2\)</span>.</li>
+</ul>
+<h3 id="example-of-what-i-need-from-you">Example of what I need from you:</h3>
+<ul>
+<li>Length <span class="arithmatex">\(L = 1.20 \, \text{m}\)</span>,</li>
+<li>Ruler resolution <span class="arithmatex">\(= 1 \, \text{mm}\)</span>,</li>
+<li>Time measurements (10 values) like:
+  <span class="arithmatex">\(T_{10} = [20.12, 20.15, 20.09, 20.18, 20.11, 20.13, 20.17, 20.10, 20.14, 20.16] \, \text{seconds}\)</span>.</li>
+</ul>
+<pre><code class="language-python">import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Simulated data
+L = 1.20  # meters
+ruler_resolution = 0.001  # meters (1 mm resolution)
+delta_L = ruler_resolution / 2
+
+# Simulated T10 measurements in seconds
+T10_measurements = np.array([20.12, 20.15, 20.09, 20.18, 20.11, 20.13, 20.17, 20.10, 20.14, 20.16])
+
+# Calculate mean and standard deviation
+T10_mean = np.mean(T10_measurements)
+sigma_T = np.std(T10_measurements, ddof=1)  # Sample standard deviation
+
+# Uncertainty in mean
+delta_T10 = sigma_T / np.sqrt(len(T10_measurements))
+
+# Calculate period T and its uncertainty
+T = T10_mean / 10
+delta_T = delta_T10 / 10
+
+# Calculate gravitational acceleration g
+g = (4 * np.pi**2 * L) / T**2
+
+# Propagate uncertainty in g
+delta_g = g * np.sqrt((delta_L / L)**2 + (2 * delta_T / T)**2)
+
+# Prepare data for chart
+data = {
+    'Measurement': np.arange(1, 11),
+    'T10 (s)': T10_measurements
+}
+
+df = pd.DataFrame(data)
+
+# Show summary results
+summary_data = {
+    'L (m)': [L],
+    'ΔL (m)': [delta_L],
+    'T10_mean (s)': [T10_mean],
+    'σT (s)': [sigma_T],
+    'ΔT10 (s)': [delta_T10],
+    'T (s)': [T],
+    'ΔT (s)': [delta_T],
+    'g (m/s^2)': [g],
+    'Δg (m/s^2)': [delta_g]
+}
+
+summary_df = pd.DataFrame(summary_data)
+
+import ace_tools as tools; tools.display_dataframe_to_user("Pendulum Measurement Results", summary_df)
+
+# Plot the measurements
+plt.figure(figsize=(10, 5))
+plt.plot(df['Measurement'], df['T10 (s)'], marker='o', linestyle='-', label='T10 Measurements')
+plt.axhline(T10_mean, color='r', linestyle='--', label=f'Mean T10 = {T10_mean:.2f} s')
+plt.xlabel('Measurement Number')
+plt.ylabel('Time for 10 Oscillations (s)')
+plt.title('Pendulum Oscillation Time Measurements')
+plt.legend()
+plt.grid(True)
+plt.show()
+</code></pre>
+<hr/>
+<ul>
+<li>
+<p>I have completed the calculations and generated a chart showing the pendulum time measurements for 10 oscillations. You can see the measured values and the mean line in the plot above.</p>
+</li>
+<li>
+<p>Additionally, I've provided a results table with:</p>
+</li>
+<li>
+<p>Pendulum length and its uncertainty,</p>
+</li>
+<li>
+<p>Mean measured time for 10 oscillations,</p>
+</li>
+<li>
+<p>Standard deviation and timing uncertainty,</p>
+</li>
+<li>
+<p>Calculated gravitational acceleration (g),</p>
+</li>
+<li>
+<p>Propagated uncertainty in g.
+<img alt="alt text" src="../image.png"/></p>
+</li>
+</ul>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
